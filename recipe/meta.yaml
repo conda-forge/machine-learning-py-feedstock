@@ -12,21 +12,21 @@ source:
     - setup.patch
   
 build:
-  number: 0
-  skip: True  # [win]
+  number: 1
+  skip: True  # [win or py37]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python <3.7
+    - python
     - setuptools
     - numpy >=1.3.0
     - scipy >=0.7.0
     - gsl >=1.11
   run:
-    - python <3.7
+    - python
     - numpy >=1.3.0
     - scipy >=0.7.0
     - gsl >=1.11
