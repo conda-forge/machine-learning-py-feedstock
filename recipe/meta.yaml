@@ -11,13 +11,14 @@ source:
     - setup.patch
   
 build:
-  number: 3
+  number: 4
   skip: True  # [win or py>36]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
