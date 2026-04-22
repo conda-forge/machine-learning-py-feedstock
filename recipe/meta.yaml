@@ -5,19 +5,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/m/machine-learning-py/machine-learning-py-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/m/machine-learning-py/machine-learning-py-{{ version }}.tar.gz
   sha256: 7dec5c202072d1b95a220dc9f39035c195df6f9a9e23e623bf6e70d2590c363e
   patches:
     - setup.patch
   
 build:
-  number: 3
+  number: 4
   skip: True  # [win or py>36]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
